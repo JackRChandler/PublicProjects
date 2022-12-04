@@ -21,3 +21,23 @@ for rucksack in rucksacks:
 
 print(sum(CompartmentValue))
 # print(rucksacks)
+
+#### Part 2
+
+LetterVals = dict()
+for index, letter in enumerate(string.ascii_letters):
+    LetterVals[tuple(letter)] = index + 1
+
+rucksacks = open('InputDay3.txt', 'r').read().split('\n')
+newrucksacks = []
+badgegroupsize = 3
+for rucksack in range(0, len(rucksacks), badgegroupsize):
+    newrucksacks.append(rucksacks[rucksack:rucksack+badgegroupsize])
+
+badgesTotal = []
+for badgegroup in newrucksacks:
+    badge = set.intersection(*map(set, badgegroup))
+#    print(LetterVals[tuple(badge)])
+    badgesTotal.append(LetterVals[tuple(badge)])
+
+print(sum(badgesTotal))
