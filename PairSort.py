@@ -23,7 +23,7 @@ for pair in pairs:
         if pair1_set.issubset(pair2_set) or pair2_set.issubset(pair1_set):
             contained_assignments += 1
         ### Part 2
-        if bool(pair1_set & pair2_set):
+        if pair1_set & pair2_set:
             contained_assignments_any += 1
 
 print(contained_assignments)
